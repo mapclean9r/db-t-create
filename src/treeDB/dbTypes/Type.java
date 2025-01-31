@@ -1,31 +1,29 @@
 package treeDB.dbTypes;
 
 public enum Type {
-    STRING("default text"),
+    NUMBER(0),
+    STRING(""),
+    TABLE_KEY("");
 
-    NUMBER(1);
+    private final Object value;
 
-    private Object defaultValue;
-
-    Type(Object defaultValue) {
-        this.defaultValue = defaultValue;
+    Type(Object value) {
+        this.value = value;
     }
 
-    public static Type NUMBER(Object i) {
-        Type.NUMBER.setDefaultValue(i);
-        return NUMBER;
+    public static DataInput<String> TABLE_KEY(String value, Type type) {
+        return new DataTableKey(value, type);
     }
 
-    public static Type STRING(Object i) {
-        Type.STRING.setDefaultValue(i);
-        return STRING;
+    public static DataInput<Integer> NUMBER(int value) {
+        return new DataInt(value);
     }
 
-    public void setDefaultValue(Object newValue) {
-        this.defaultValue = newValue;
+    public static DataInput<String> STRING(String value) {
+        return new DataString(value);
     }
 
     public Object getValue() {
-        return defaultValue;
+        return value;
     }
 }

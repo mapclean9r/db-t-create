@@ -1,19 +1,24 @@
 import treeDB.Table;
-import treeDB.dbTypes.Type;
+import treeDB.dbTypes.*;
+
+import java.util.HashMap;
 
 public class Main {
-
     public static void main(String[] args) {
 
+        Table<String> table1 = new Table<>(
+                Type.TABLE_KEY("firstName", Type.STRING),
+                Type.TABLE_KEY("lastName", Type.STRING),
+                Type.STRING("r"),
+                Type.TABLE_KEY("age", Type.NUMBER)
+        );
 
-
-        Table table1 = new Table(Type.NUMBER(55), Type.STRING("Big"));
-
-        for (int i = 0; i < table1.getTypeHashMap().size(); i++){
-            System.out.println(table1.getTypeHashMap().get(i) + " " + table1.getTypeHashMap().get(i).getValue());
+        HashMap<Integer, DataInput<String>> ihm = table1.getTypeHashMap();
+        for (int i = 0; i < ihm.size(); i++){
+            System.out.println(i+ ": " +ihm.get(i).getType()+ " | "+
+                    "TableType: " + ihm.get(i).getTableType()+
+                    " | TableName: " + ihm.get(i).getValue() );
         }
-
-        System.out.println(table1.getTypeHashMap());
 
 
     }
