@@ -10,6 +10,7 @@ public class Table<String> {
     private final HashMap<Integer, DataInput<String>> typeHashMap = new HashMap<>();
 
     //fix ;*(  |  or not :D
+
     @SafeVarargs
     public Table(DataInput<String>... types) {
         ArrayList<DataInput<String>> cleanData = new ArrayList<>();

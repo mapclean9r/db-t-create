@@ -1,3 +1,5 @@
+package treeDB;
+
 import treeDB.Table;
 import treeDB.dbTypes.*;
 

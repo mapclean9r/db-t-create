@@ -2,5 +2,13 @@ package treeDB;
 
 public class OOO {
 
-    public OOO(){}
+    protected String egg = "egg";
+
+    public OOO(){
+
+    }
+
+    protected void print(){
+        System.out.println("ooooo");
+    }
 }
